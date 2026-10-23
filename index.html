@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Álbum dos Contratos — Raffs</title>
+<meta name="description" content="Cada contrato cumprido na live do Raffs vira figurinha. Manda um Pix e garanta a sua.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@500;600;700&family=Yellowtail&display=swap" rel="stylesheet">
+<style>
+:root{
+  --noite:#120826; --noite-2:#1a0c30; --roxo:#2b0d46; --linha:#3a1d57; --campo:#5a3478;
+  --rosa:#ff2e93; --rosa-claro:#ff6fb5; --teal:#2ee6d6; --ouro:#ffd35c;
+  --creme:#fff8f0; --lilas:#d9c6e6; --lilas-2:#c9b3d9; --borda:#8f63b5;
+}
+*{box-sizing:border-box}
+html{color-scheme:dark}
+body{margin:0;background:var(--noite);color:var(--creme);font-family:'Barlow',system-ui,sans-serif;font-size:17px;line-height:1.5}
+a{color:var(--rosa-claro)}
+a:hover{color:#ffc2e0}
+code{font-family:ui-monospace,Consolas,monospace;font-size:.92em;background:var(--roxo);padding:1px 6px;border-radius:6px}
+:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.aviso-exemplo{background:var(--ouro);color:var(--noite);font-weight:600;text-align:center;padding:10px 20px;font-size:15px}
+
+/* ===== Topo ===== */
+.hero{position:relative;overflow:hidden;background:var(--noite);border-bottom:2px solid rgba(255,79,163,.4);min-height:420px;display:flex;align-items:center}
+.hero-cena{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero .wrap{position:relative;width:100%;padding-top:56px;padding-bottom:64px}
+.kicker{font-family:'Yellowtail',cursive;font-size:36px;line-height:1.1;color:var(--teal);margin:0}
+h1{font-family:'Anton',sans-serif;font-weight:400;font-size:clamp(52px,9vw,100px);line-height:.95;letter-spacing:1px;margin:8px 0 18px;text-shadow:5px 5px 0 var(--rosa);transform:skewX(-8deg);transform-origin:left center}
+.lead{max-width:500px;color:var(--lilas);font-size:19px;margin:0 0 26px}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 22px;border-radius:999px;font-family:'Barlow',sans-serif;font-weight:700;font-size:15px;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;border:2px solid var(--rosa-claro);color:var(--creme);background:rgba(18,8,38,.6);cursor:pointer}
+.btn:hover{background:rgba(255,111,181,.16);color:var(--creme)}
+.btn-primario{background:var(--rosa);border-color:var(--rosa);color:var(--noite)}
+.btn-primario:hover{background:var(--rosa-claro);border-color:var(--rosa-claro);color:var(--noite)}
+.btn[hidden]{display:none}
+@media (max-width:720px){.hero-cena{opacity:.35}}
+
+/* ===== Títulos de seção ===== */
+.titulo-secao{font-family:'Anton',sans-serif;font-weight:400;font-size:38px;line-height:1;letter-spacing:1px;margin:0 0 20px;text-shadow:3px 3px 0 var(--rosa);transform:skewX(-8deg);transform-origin:left center}
+
+/* ===== Resumo ===== */
+.painel{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));margin-top:36px;margin-bottom:36px}
+.stat{background:var(--noite-2);border:1px solid var(--linha);border-radius:16px;padding:18px 20px}
+.stat-num{font-family:'Anton',sans-serif;font-size:42px;line-height:1;letter-spacing:1px}
+.stat-de{color:var(--lilas-2);font-size:26px}
+.stat-rot{margin-top:6px;color:var(--lilas-2);font-size:14px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase}
+.barra{height:10px;border-radius:999px;background:#2b1446;margin-top:14px;overflow:hidden}
+.barra span{display:block;height:100%;width:0;border-radius:inherit;background:linear-gradient(90deg,var(--rosa),var(--ouro))}
+
+/* ===== Busca e filtros ===== */
+.controles{display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between;margin-bottom:12px}
+.busca{display:flex;flex-direction:column;gap:6px;flex:1 1 280px;max-width:380px}
+label{font-weight:600;font-size:15px;color:var(--lilas)}
+input,select,textarea{font:inherit;font-size:16px;color:var(--creme);background:var(--noite-2);border:2px solid var(--campo);border-radius:12px;padding:10px 14px;min-height:44px;width:100%}
+input::placeholder,textarea::placeholder{color:#a58cb8}
+input:focus,select:focus,textarea:focus{border-color:var(--teal);outline:none}
+.busca input{border-radius:999px;padding-left:18px}
+.filtros{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:44px;padding:8px 18px;border-radius:999px;border:2px solid var(--campo);background:transparent;color:var(--lilas);font:inherit;font-weight:700;font-size:15px;cursor:pointer}
+.chip:hover{border-color:var(--rosa-claro);color:var(--creme)}
+.chip[aria-pressed="true"]{background:var(--rosa);border-color:var(--rosa);color:var(--noite)}
+.status{min-height:24px;margin:0 0 16px;color:var(--lilas-2);font-size:15px}
+
+/* ===== Grade ===== */
+.grade{list-style:none;margin:0 0 56px;padding:0;display:grid;gap:20px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+.grade li{min-width:0}
+@media (max-width:520px){.grade{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.stat-num{font-size:34px}}
+.fig-link{display:block;text-decoration:none;color:inherit;border-radius:6%;transition:transform .2s ease}
+.fig-link:hover{transform:translateY(-4px) rotate(-1deg)}
+@media (prefers-reduced-motion:reduce){.fig-link{transition:none}.fig-link:hover{transform:none}}
+
+/* ===== Figurinha (tudo em cqw: escala com o tamanho do card) ===== */
+.fig{position:relative;container-type:inline-size;aspect-ratio:5/7;width:100%}
+.fig-moldura{position:absolute;inset:0;padding:2cqw;border-radius:6cqw;background:var(--creme)}
+.fig--brilhante .fig-moldura{background:linear-gradient(135deg,#ff2e93,#ffd35c 30%,#2ee6d6 55%,#b26bff 80%,#ff2e93)}
+.fig-in{position:relative;width:100%;height:100%;padding:4cqw;border-radius:4cqw;background:var(--noite);display:flex;flex-direction:column;gap:3cqw;overflow:hidden;color:var(--creme);text-align:left}
+.fig-topo{display:flex;align-items:center;justify-content:space-between;gap:3cqw}
+.fig-num{font-family:'Anton',sans-serif;font-size:7cqw;line-height:1;padding:1.5cqw 4cqw;border-radius:999px;background:var(--rosa);color:var(--creme);letter-spacing:.25cqw}
+.fig--brilhante .fig-num{background:var(--ouro);color:var(--noite)}
+.fig-tag{display:flex;align-items:center;gap:1.5cqw;font-family:'Anton',sans-serif;font-size:4cqw;letter-spacing:.75cqw;color:var(--teal);white-space:nowrap}
+.fig--brilhante .fig-tag{color:var(--ouro)}
+.fig-tag svg{width:4.5cqw;height:4.5cqw;flex:none}
+.fig-img{position:relative;flex:none;width:100%;aspect-ratio:352/250;border-radius:2.5cqw;overflow:hidden;background:var(--roxo)}
+.fig-img img,.fig-img .cena{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.fig-carimbo{position:absolute;left:3.5cqw;bottom:4cqw;display:flex;align-items:center;gap:1.5cqw;padding:1cqw 3cqw;border:.75cqw solid var(--rosa);border-radius:2cqw;background:rgba(18,8,38,.85);color:#ff4fa3;font-family:'Anton',sans-serif;font-size:5.5cqw;line-height:1.2;letter-spacing:.5cqw;transform:rotate(-8deg)}
+.fig-carimbo svg{width:5cqw;height:5cqw;flex:none}
+.fig--brilhante .fig-carimbo{border-color:var(--ouro);color:var(--ouro)}
+.fig-quem{display:flex;flex-direction:column;gap:.5cqw;min-width:0}
+.fig-rot{font-family:'Yellowtail',cursive;font-size:6cqw;line-height:1.1;color:var(--teal)}
+.fig-nome{font-family:'Anton',sans-serif;font-size:10cqw;line-height:1.1;letter-spacing:.25cqw;text-shadow:.75cqw .75cqw 0 var(--rosa);transform:skewX(-8deg);transform-origin:left center;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;padding-right:2cqw}
+.fig-pedido{margin:0;font-weight:600;font-size:4.5cqw;line-height:1.3;max-height:3.9em;color:#f4dcef;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.fig-rodape{margin-top:auto;display:flex;align-items:flex-end;justify-content:space-between;gap:3cqw}
+.fig-data{font-size:3.5cqw;font-weight:500;color:var(--lilas-2)}
+.fig-assina{font-family:'Yellowtail',cursive;font-size:7cqw;line-height:1;color:var(--rosa-claro)}
+.fig-brilho{position:absolute;inset:2cqw;border-radius:4cqw;pointer-events:none;background-image:linear-gradient(115deg,rgba(255,255,255,0) 35%,rgba(255,255,255,.22) 47%,rgba(255,214,236,.14) 52%,rgba(255,255,255,0) 64%);background-size:260% 100%;animation:brilho 3.6s ease-in-out infinite}
+@keyframes brilho{0%{background-position:160% 0}100%{background-position:-60% 0}}
+@media (prefers-reduced-motion:reduce){.fig-brilho{animation:none;background-position:50% 0}}
+
+/* ===== Espaço vazio ===== */
+.vazia{position:relative;container-type:inline-size;aspect-ratio:5/7;width:100%}
+.vazia-in{position:absolute;inset:0;overflow:hidden;border:.75cqw dashed var(--borda);border-radius:6cqw;background:var(--noite-2);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.5cqw;padding:6cqw;text-align:center}
+.vazia-in svg{position:absolute;right:-15cqw;bottom:-10cqw;width:65cqw;height:auto}
+.vazia-num,.vazia-txt,.vazia-cta{position:relative}
+.vazia-num{font-family:'Anton',sans-serif;font-size:26cqw;line-height:1;letter-spacing:.5cqw;color:var(--borda)}
+.vazia-txt{max-width:70cqw;font-weight:600;font-size:4.5cqw;line-height:1.35;color:var(--lilas)}
+.vazia-cta{font-family:'Yellowtail',cursive;font-size:7.5cqw;line-height:1.2;color:var(--rosa-claro)}
+
+/* ===== Ranking ===== */
+.ranking{margin-bottom:64px}
+.rank{list-style:none;margin:0;padding:0;display:grid;gap:10px;max-width:640px}
+.rank li{display:flex;align-items:center;gap:16px;background:var(--noite-2);border:1px solid var(--linha);border-radius:14px;padding:12px 18px}
+.rank-pos{font-family:'Anton',sans-serif;font-size:28px;line-height:1;min-width:36px;color:var(--teal)}
+.rank li:first-child .rank-pos{color:var(--ouro)}
+.rank-nome{flex:1;min-width:0;font-family:'Anton',sans-serif;font-size:22px;letter-spacing:.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rank-qtd{color:var(--lilas);font-weight:600;font-size:15px;white-space:nowrap}
+.rank-bril{display:inline-flex;align-items:center;gap:4px;color:var(--ouro);font-weight:700;font-size:15px}
+.rank-vazio{color:var(--lilas-2)}
+
+/* ===== Janela da figurinha ===== */
+dialog{border:0;padding:0;background:var(--noite-2);color:var(--creme);border-radius:20px;width:min(980px,calc(100% - 24px));max-height:calc(100% - 24px)}
+dialog::backdrop{background:rgba(8,3,18,.82)}
+.modal-grid{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:28px;padding:28px}
+.modal-fig{width:100%}
+.modal-info h2{font-family:'Anton',sans-serif;font-weight:400;font-size:34px;line-height:1;letter-spacing:1px;margin:0 52px 14px 0}
+.modal-info p{margin:0 0 12px;color:var(--lilas)}
+.modal-info strong{color:var(--creme)}
+.clipe{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#000;margin:8px 0 16px}
+.clipe-aviso{background:var(--roxo);border-radius:12px;padding:14px 16px;margin:8px 0 16px;color:var(--lilas)}
+.acoes{display:flex;flex-wrap:wrap;gap:10px}
+.fechar{position:absolute;top:14px;right:14px;width:44px;height:44px;border-radius:999px;border:2px solid var(--campo);background:var(--noite-2);color:var(--creme);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.fechar:hover{border-color:var(--rosa-claro)}
+@media (max-width:760px){.modal-grid{grid-template-columns:1fr;padding:20px}.modal-fig{max-width:300px;margin:0 auto}}
+
+/* ===== Cadastro ===== */
+.cadastro{padding-top:36px;padding-bottom:64px}
+.voltar{display:inline-flex;align-items:center;min-height:44px;font-weight:700;text-decoration:none}
+.cad-intro{color:var(--lilas);max-width:640px;margin:0 0 28px}
+.cad-grid{display:grid;gap:36px;grid-template-columns:minmax(0,1fr) minmax(0,340px);align-items:start}
+.campo{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.dica{font-size:14px;color:var(--lilas-2)}
+.cad-lado{display:flex;flex-direction:column;gap:12px}
+.cad-lado textarea{font-family:ui-monospace,Consolas,monospace;font-size:13px;resize:vertical}
+@media (max-width:820px){.cad-grid{grid-template-columns:1fr}.cad-previa{max-width:320px}}
+
+footer{border-top:1px solid var(--linha);padding:28px 0 40px;color:var(--lilas-2);font-size:15px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;align-items:center}
+.assinatura{font-family:'Yellowtail',cursive;font-size:30px;color:var(--rosa-claro)}
+</style>
+</head>
+<body>
+
+<div id="aviso-exemplo" class="aviso-exemplo" hidden>As figurinhas não carregaram. Confira o arquivo figurinhas.js: provavelmente faltou uma vírgula ou aspas na última linha colada.</div>
+
+<header class="hero">
+  <svg class="hero-cena" viewBox="0 0 1200 400" preserveAspectRatio="xMaxYMax slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="h-ceu" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="330">
+        <stop offset="0" stop-color="#120826"/><stop offset="0.6" stop-color="#2b0d46"/><stop offset="1" stop-color="#5c1659"/>
+      </linearGradient>
+      <linearGradient id="h-sol" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffe066"/><stop offset="0.55" stop-color="#ff9a3c"/><stop offset="1" stop-color="#ff5a5f"/>
+      </linearGradient>
+      <g id="h-palma">
+        <path d="M126,300 C122,220 112,140 99,50 L108,48 C120,140 132,220 140,300 Z"/>
+        <path d="M103,46 C132,22 172,24 198,58 C170,42 136,44 103,54 Z"/>
+        <path d="M103,46 C74,22 34,24 6,58 C34,42 70,44 103,54 Z"/>
+        <path d="M103,48 C142,50 174,76 184,112 C160,84 134,66 103,56 Z"/>
+        <path d="M103,48 C64,50 32,76 22,112 C46,84 72,66 103,56 Z"/>
+        <path d="M103,46 C114,16 140,2 172,6 C146,14 124,28 106,50 Z"/>
+        <path d="M103,46 C92,16 66,2 34,6 C60,14 82,28 100,50 Z"/>
+        <circle cx="98" cy="56" r="6" fill="#7a1450"/><circle cx="110" cy="57" r="6" fill="#7a1450"/><circle cx="104" cy="64" r="5" fill="#7a1450"/>
+      </g>
+    </defs>
+    <rect width="1200" height="400" fill="url(#h-ceu)"/>
+    <g fill="#ffd6ec">
+      <circle cx="60" cy="40" r="1.6"/><circle cx="210" cy="90" r="1.2"/><circle cx="380" cy="30" r="1.5"/><circle cx="520" cy="120" r="1.1"/>
+      <circle cx="640" cy="50" r="1.4"/><circle cx="760" cy="24" r="1.6"/><circle cx="1010" cy="60" r="1.2"/><circle cx="150" cy="210" r="1"/><circle cx="460" cy="240" r="1.2"/>
+    </g>
+    <circle cx="920" cy="300" r="150" fill="url(#h-sol)"/>
+    <rect x="760" y="262" width="320" height="4" fill="url(#h-ceu)"/>
+    <rect x="760" y="280" width="320" height="6" fill="url(#h-ceu)"/>
+    <rect x="760" y="300" width="320" height="8" fill="url(#h-ceu)"/>
+    <rect x="760" y="318" width="320" height="10" fill="url(#h-ceu)"/>
+    <rect x="0" y="330" width="1200" height="70" fill="#1e0b36"/>
+    <rect x="0" y="329" width="1200" height="2" fill="#ff4fa3" opacity="0.6"/>
+    <rect x="830" y="342" width="180" height="4" fill="#ff8a4c" opacity="0.8"/>
+    <rect x="855" y="358" width="130" height="4" fill="#ff7a59" opacity="0.7"/>
+    <rect x="880" y="373" width="80" height="3" fill="#ff6a6a" opacity="0.6"/>
+    <rect x="900" y="386" width="40" height="3" fill="#ff5a7a" opacity="0.5"/>
+    <use href="#h-palma" transform="translate(700,214) scale(0.5)" fill="#ff3d9a"/>
+    <use href="#h-palma" transform="translate(830,160) scale(0.78)" fill="#ff3d9a"/>
+    <use href="#h-palma" transform="translate(985,30) scale(1.25)" fill="#ff3d9a"/>
+  </svg>
+  <div class="wrap">
+    <p class="kicker">Raffs apresenta</p>
+    <h1>ÁLBUM DOS<br>CONTRATOS</h1>
+    <p class="lead">Cada contrato cumprido na live vira figurinha. Manda um Pix, faz o seu pedido e garanta a sua no álbum.</p>
+    <div class="ctas">
+      <a id="btn-contrato" class="btn btn-primario" target="_blank" rel="noopener" hidden>Fechar contrato</a>
+      <a id="btn-twitch" class="btn" target="_blank" rel="noopener" hidden>Assistir na Twitch</a>
+    </div>
+  </div>
+</header>
+
+<main id="album">
+  <section class="painel wrap" aria-label="Resumo do álbum">
+    <div class="stat">
+      <div class="stat-num"><span id="st-tem">0</span><span class="stat-de"> / <span id="st-total">0</span></span></div>
+      <div class="stat-rot">figurinhas coladas</div>
+      <div class="barra" id="barra" role="progressbar" aria-label="Progresso do álbum" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="barra-fill"></span></div>
+    </div>
+    <div class="stat"><div class="stat-num" id="st-bril">0</div><div class="stat-rot">brilhantes</div></div>
+    <div class="stat"><div class="stat-num" id="st-col">0</div><div class="stat-rot">colecionadores</div></div>
+    <div class="stat"><div class="stat-num" id="st-faltam">0</div><div class="stat-rot">faltando</div></div>
+  </section>
+
+  <section class="wrap" aria-labelledby="titulo-figs">
+    <h2 id="titulo-figs" class="titulo-secao">FIGURINHAS</h2>
+    <div class="controles">
+      <div class="busca">
+        <label for="busca">Procurar pelo nome ou pedido</label>
+        <input id="busca" type="search" placeholder="Ex: fulano" autocomplete="off">
+      </div>
+      <div class="filtros" role="group" aria-label="Filtrar figurinhas">
+        <button type="button" class="chip" data-filtro="todas" aria-pressed="true">Todas</button>
+        <button type="button" class="chip" data-filtro="brilhantes" aria-pressed="false">Brilhantes</button>
+        <button type="button" class="chip" data-filtro="faltando" aria-pressed="false">Faltando</button>
+      </div>
+    </div>
+    <p id="status" class="status" aria-live="polite"></p>
+    <ul id="grade" class="grade"></ul>
+  </section>
+
+  <section class="ranking wrap" aria-labelledby="titulo-rank">
+    <h2 id="titulo-rank" class="titulo-secao">RANKING DOS COLECIONADORES</h2>
+    <ol id="ranking" class="rank"></ol>
+  </section>
+</main>
+
+<main id="cadastro" class="cadastro wrap" hidden>
+  <a href="#" class="voltar">← Voltar pro álbum</a>
+  <h2 class="titulo-secao">CADASTRAR FIGURINHA</h2>
+  <p class="cad-intro">Preencha os dados do contrato, confira a prévia e copie a linha gerada. Depois cole essa linha dentro da lista no arquivo <code>figurinhas.js</code>, logo abaixo da última figurinha.</p>
+  <div class="cad-grid">
+    <form id="form-cad" novalidate>
+      <div class="campo"><label for="c-numero">Número da figurinha</label><input id="c-numero" type="number" min="1" step="1"></div>
+      <div class="campo"><label for="c-contratante">Nome de quem pagou</label><input id="c-contratante" type="text" placeholder="Como veio no Pix" autocomplete="off"></div>
+      <div class="campo"><label for="c-pedido">O pedido</label><textarea id="c-pedido" rows="3" placeholder="Ex: Fugir da polícia só de bicicleta"></textarea></div>
+      <div class="campo"><label for="c-data">Data</label><input id="c-data" type="date"></div>
+      <div class="campo"><label for="c-clipe">Link do clipe na Twitch</label><input id="c-clipe" type="url" placeholder="https://clips.twitch.tv/..."></div>
+      <div class="campo"><label for="c-imagem">Arquivo do print</label><input id="c-imagem" type="text" autocomplete="off"><span class="dica">Suba o print na pasta <code>imagens</code> com exatamente esse nome.</span></div>
+      <div class="campo"><label for="c-raridade">Raridade</label><select id="c-raridade"><option value="comum">Comum</option><option value="brilhante">Brilhante</option></select></div>
+    </form>
+    <div class="cad-lado">
+      <div id="c-previa" class="cad-previa"></div>
+      <label for="c-saida">Linha para colar no figurinhas.js</label>
+      <textarea id="c-saida" rows="5" readonly></textarea>
+      <button type="button" id="c-copiar" class="btn btn-primario">Copiar linha</button>
+      <p id="c-aviso" class="status" aria-live="polite"></p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Álbum dos Contratos · as figurinhas nascem na live</span>
+    <span class="assinatura">Raffs</span>
+  </div>
+</footer>
+
+<dialog id="modal" aria-labelledby="modal-titulo">
+  <button type="button" class="fechar" id="modal-fechar" aria-label="Fechar">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+  </button>
+  <div class="modal-grid">
+    <div class="modal-fig" id="modal-fig"></div>
+    <div class="modal-info">
+      <h2 id="modal-titulo">Figurinha</h2>
+      <p id="modal-quem"></p>
+      <p id="modal-pedido"></p>
+      <div id="modal-clipe"></div>
+      <div class="acoes">
+        <button type="button" class="btn btn-primario" id="btn-baixar">Baixar figurinha</button>
+        <button type="button" class="btn" id="btn-link">Copiar link</button>
+      </div>
+      <p id="modal-aviso" class="status" aria-live="polite"></p>
+    </div>
+  </div>
+</dialog>
+
+<script src="figurinhas.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" defer></script>
+<script>
+(function () {
+  'use strict';
+
+  /* ---------- Dados ---------- */
+  var arquivoQuebrado = !window.ALBUM;
+  var ALBUM = window.ALBUM || { config: {}, figurinhas: [] };
+  var cfg = Object.assign({ totalDeEspacos: 100, linkContrato: '', linkTwitch: '' }, ALBUM.config || {});
+
+  var figs = (ALBUM.figurinhas || [])
+    .filter(function (f) { return f && Number(f.numero) > 0; })
+    .map(function (f) {
+      return {
+        numero: Math.floor(Number(f.numero)),
+        contratante: String(f.contratante || '').trim().replace(/^@+/, ''),
+        pedido: String(f.pedido || '').trim(),
+        data: String(f.data || '').trim(),
+        clipe: String(f.clipe || '').trim(),
+        imagem: String(f.imagem || '').trim(),
+        raridade: f.raridade === 'brilhante' ? 'brilhante' : 'comum'
+      };
+    })
+    .sort(function (a, b) { return a.numero - b.numero; });
+
+  var porNumero = new Map();
+  figs.forEach(function (f) { porNumero.set(f.numero, f); });
+  figs = Array.from(porNumero.values());
+  var maiorNumero = figs.length ? figs[figs.length - 1].numero : 0;
+  var total = Math.max(Math.floor(Number(cfg.totalDeEspacos)) || 0, maiorNumero);
+
+  /* ---------- Utilidades ---------- */
+  function $(id) { return document.getElementById(id); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+  function pad(n) { return String(n).padStart(3, '0'); }
+  function dataBR(d) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(d);
+    return m ? m[3] + '/' + m[2] + '/' + m[1] : esc(d);
+  }
+  function norm(s) { return String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase(); }
+  function nomeExibido(n) { return '@' + (n || 'anônimo').toUpperCase(); }
+  function hojeISO() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+  function slugDoClipe(url) {
+    if (!url) return '';
+    try {
+      var u = new URL(url);
+      if (u.hostname === 'clips.twitch.tv') {
+        var partes = u.pathname.split('/').filter(Boolean);
+        if (partes[0] === 'embed') return u.searchParams.get('clip') || '';
+        return partes[0] || '';
+      }
+      var m = u.pathname.match(/\/clip\/([^/?#]+)/);
+      return m ? m[1] : '';
+    } catch (e) { return ''; }
+  }
+  function copiar(texto) {
+    if (navigator.clipboard && window.isSecureContext) return navigator.clipboard.writeText(texto);
+    return new Promise(function (ok, erro) {
+      var t = document.createElement('textarea');
+      t.value = texto; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+      document.body.appendChild(t); t.select();
+      try { document.execCommand('copy') ? ok() : erro(); } catch (e) { erro(e); }
+      t.remove();
+    });
+  }
+
+  /* ---------- Desenhos ---------- */
+  var PALMA =
+    '<path d="M126,300 C122,220 112,140 99,50 L108,48 C120,140 132,220 140,300 Z"/>' +
+    '<path d="M103,46 C132,22 172,24 198,58 C170,42 136,44 103,54 Z"/>' +
+    '<path d="M103,46 C74,22 34,24 6,58 C34,42 70,44 103,54 Z"/>' +
+    '<path d="M103,48 C142,50 174,76 184,112 C160,84 134,66 103,56 Z"/>' +
+    '<path d="M103,48 C64,50 32,76 22,112 C46,84 72,66 103,56 Z"/>' +
+    '<path d="M103,46 C114,16 140,2 172,6 C146,14 124,28 106,50 Z"/>' +
+    '<path d="M103,46 C92,16 66,2 34,6 C60,14 82,28 100,50 Z"/>';
+  var COCOS = '<circle cx="98" cy="56" r="6" fill="#7a1450"/><circle cx="110" cy="57" r="6" fill="#7a1450"/><circle cx="104" cy="64" r="5" fill="#7a1450"/>';
+  var CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5 L9.5 18 L20 6"/></svg>';
+  var ESTRELA = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.8 L14.8 8.9 L21.4 9.6 L16.4 14 L17.9 20.6 L12 17.2 L6.1 20.6 L7.6 14 L2.6 9.6 L9.2 8.9 Z"/></svg>';
+  var uid = 0;
+
+  function cenaSVG() {
+    var k = 'cn' + (++uid);
+    return '<svg class="cena" viewBox="0 0 352 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">' +
+      '<defs>' +
+      '<linearGradient id="' + k + 's" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="0" y2="200"><stop offset="0" stop-color="#120826"/><stop offset="0.6" stop-color="#2b0d46"/><stop offset="1" stop-color="#5c1659"/></linearGradient>' +
+      '<linearGradient id="' + k + 'u" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset="0.55" stop-color="#ff9a3c"/><stop offset="1" stop-color="#ff5a5f"/></linearGradient>' +
+      '<g id="' + k + 'p">' + PALMA + COCOS + '</g>' +
+      '</defs>' +
+      '<rect width="352" height="250" fill="url(#' + k + 's)"/>' +
+      '<g fill="#ffd6ec"><circle cx="30" cy="24" r="1.4"/><circle cx="120" cy="40" r="1"/><circle cx="200" cy="16" r="1.3"/><circle cx="80" cy="90" r="1"/></g>' +
+      '<circle cx="250" cy="176" r="84" fill="url(#' + k + 'u)"/>' +
+      '<rect x="160" y="150" width="190" height="3" fill="url(#' + k + 's)"/>' +
+      '<rect x="160" y="162" width="190" height="5" fill="url(#' + k + 's)"/>' +
+      '<rect x="160" y="176" width="190" height="6" fill="url(#' + k + 's)"/>' +
+      '<rect x="160" y="190" width="190" height="8" fill="url(#' + k + 's)"/>' +
+      '<rect y="200" width="352" height="50" fill="#1e0b36"/>' +
+      '<rect y="199" width="352" height="2" fill="#ff4fa3" opacity="0.6"/>' +
+      '<rect x="195" y="210" width="110" height="3" fill="#ff8a4c" opacity="0.8"/>' +
+      '<rect x="212" y="222" width="76" height="3" fill="#ff7a59" opacity="0.7"/>' +
+      '<rect x="228" y="234" width="44" height="2" fill="#ff6a6a" opacity="0.6"/>' +
+      '<use href="#' + k + 'p" transform="translate(190,92) scale(0.45)" fill="#ff3d9a"/>' +
+      '<use href="#' + k + 'p" transform="translate(262,8) scale(0.8)" fill="#ff3d9a"/>' +
+      '</svg>';
+  }
+
+  function cardHTML(f, opcoes) {
+    opcoes = opcoes || {};
+    var b = f.raridade === 'brilhante';
+    var img = f.imagem
+      ? '<img src="' + esc(f.imagem) + '" alt="Print do contrato #' + pad(f.numero) + '"' + (opcoes.carregarJa ? '' : ' loading="lazy"') + '>'
+      : cenaSVG();
+    return '<article class="fig' + (b ? ' fig--brilhante' : '') + '">' +
+      '<div class="fig-moldura"><div class="fig-in">' +
+      '<div class="fig-topo"><span class="fig-num">#' + pad(f.numero) + '</span>' +
+      '<span class="fig-tag">' + (b ? ESTRELA + 'BRILHANTE' : 'CONTRATO DO CHAT') + '</span></div>' +
+      '<div class="fig-img">' + img + '<span class="fig-carimbo">' + CHECK + 'CUMPRIDO</span></div>' +
+      '<div class="fig-quem"><span class="fig-rot">Contratante</span><span class="fig-nome">' + esc(nomeExibido(f.contratante)) + '</span></div>' +
+      '<p class="fig-pedido">“' + esc(f.pedido || 'Pedido não informado') + '”</p>' +
+      '<div class="fig-rodape"><span class="fig-data">' + dataBR(f.data) + '</span><span class="fig-assina">Raffs</span></div>' +
+      '</div></div>' +
+      (b ? '<div class="fig-brilho" aria-hidden="true"></div>' : '') +
+      '</article>';
+  }
+
+  function vaziaHTML(n) {
+    return '<div class="vazia" role="img" aria-label="Figurinha #' + pad(n) + ': ainda não cumprida"><div class="vazia-in">' +
+      '<svg viewBox="0 0 200 300" aria-hidden="true" focusable="false"><g fill="#2b1446">' + PALMA + '</g></svg>' +
+      '<span class="vazia-num">#' + pad(n) + '</span>' +
+      '<span class="vazia-txt">Esse contrato ainda não foi cumprido</span>' +
+      '<span class="vazia-cta">Manda um Pix e garanta a sua</span>' +
+      '</div></div>';
+  }
+
+  // Print que não carregou (nome errado, ainda não subiu) vira o cenário padrão
+  document.addEventListener('error', function (e) {
+    var el = e.target;
+    if (el && el.tagName === 'IMG' && el.closest && el.closest('.fig-img')) {
+      el.insertAdjacentHTML('afterend', cenaSVG());
+      el.remove();
+    }
+  }, true);
+
+  /* ---------- Topo ---------- */
+  if (arquivoQuebrado) $('aviso-exemplo').hidden = false;
+  if (cfg.linkContrato) { $('btn-contrato').href = cfg.linkContrato; $('btn-contrato').hidden = false; }
+  if (cfg.linkTwitch) { $('btn-twitch').href = cfg.linkTwitch; $('btn-twitch').hidden = false; }
+
+  /* ---------- Resumo e ranking ---------- */
+  function montarResumo() {
+    var tem = figs.filter(function (f) { return f.numero <= total; }).length;
+    var pct = total ? Math.round((tem / total) * 100) : 0;
+    var nomes = new Set(figs.map(function (f) { return norm(f.contratante || 'anonimo'); }));
+    $('st-tem').textContent = tem;
+    $('st-total').textContent = total;
+    $('st-bril').textContent = figs.filter(function (f) { return f.raridade === 'brilhante'; }).length;
+    $('st-col').textContent = nomes.size;
+    $('st-faltam').textContent = Math.max(total - tem, 0);
+    $('barra').setAttribute('aria-valuenow', pct);
+    $('barra-fill').style.width = pct + '%';
+  }
+
+  function montarRanking() {
+    var mapa = new Map();
+    figs.forEach(function (f) {
+      var chave = norm(f.contratante || 'anonimo');
+      var r = mapa.get(chave) || { nome: f.contratante, qtd: 0, bril: 0 };
+      r.qtd++; if (f.raridade === 'brilhante') r.bril++;
+      r.nome = f.contratante;
+      mapa.set(chave, r);
+    });
+    var lista = Array.from(mapa.values()).sort(function (a, b) {
+      return b.qtd - a.qtd || b.bril - a.bril || a.nome.localeCompare(b.nome);
+    }).slice(0, 10);
+    $('ranking').innerHTML = lista.length ? lista.map(function (r, i) {
+      return '<li><span class="rank-pos">' + (i + 1) + '</span>' +
+        '<span class="rank-nome">' + esc(nomeExibido(r.nome)) + '</span>' +
+        (r.bril ? '<span class="rank-bril" aria-label="' + r.bril + ' brilhante' + (r.bril > 1 ? 's' : '') + '">' + ESTRELA.replace('<svg ', '<svg width="16" height="16" ') + r.bril + '</span>' : '') +
+        '<span class="rank-qtd">' + r.qtd + ' figurinha' + (r.qtd > 1 ? 's' : '') + '</span></li>';
+    }).join('') : '<li class="rank-vazio">Ainda sem colecionadores. O primeiro contrato abre o ranking.</li>';
+  }
+
+  /* ---------- Grade ---------- */
+  var filtro = 'todas';
+  var busca = '';
+
+  function montarGrade() {
+    var q = norm(busca.trim());
+    var itens = [];
+    var n;
+    if (q) {
+      itens = figs.filter(function (f) { return norm(f.contratante).indexOf(q) > -1 || norm(f.pedido).indexOf(q) > -1; });
+    } else if (filtro === 'brilhantes') {
+      itens = figs.filter(function (f) { return f.raridade === 'brilhante'; });
+    } else if (filtro === 'faltando') {
+      for (n = 1; n <= total; n++) if (!porNumero.has(n)) itens.push(n);
+    } else {
+      for (n = 1; n <= total; n++) itens.push(porNumero.get(n) || n);
+    }
+    $('grade').innerHTML = itens.map(function (it) {
+      if (typeof it === 'number') return '<li>' + vaziaHTML(it) + '</li>';
+      return '<li><a class="fig-link" href="#f-' + pad(it.numero) + '" aria-label="Ver figurinha #' + pad(it.numero) + ' de ' + esc(nomeExibido(it.contratante)) + '">' + cardHTML(it) + '</a></li>';
+    }).join('');
+
+    var st = '';
+    if (q) st = itens.length ? itens.length + ' figurinha' + (itens.length > 1 ? 's' : '') + ' encontrada' + (itens.length > 1 ? 's' : '') + '.' : 'Nenhuma figurinha com esse nome ainda. Que tal fechar um contrato?';
+    else if (filtro === 'brilhantes' && !itens.length) st = 'Nenhuma brilhante ainda.';
+    else if (filtro === 'faltando' && !itens.length) st = 'Álbum completo!';
+    $('status').textContent = st;
+  }
+
+  $('busca').addEventListener('input', function (e) { busca = e.target.value; montarGrade(); });
+  Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (bt) {
+    bt.addEventListener('click', function () {
+      filtro = bt.getAttribute('data-filtro');
+      Array.prototype.forEach.call(document.querySelectorAll('.chip'), function (o) { o.setAttribute('aria-pressed', o === bt ? 'true' : 'false'); });
+      montarGrade();
+    });
+  });
+
+  /* ---------- Janela da figurinha ---------- */
+  var modal = $('modal');
+  var atual = null;
+
+  function aviso(txt) { $('modal-aviso').textContent = txt; }
+
+  function abrir(f) {
+    atual = f;
+    $('modal-fig').innerHTML = cardHTML(f);
+    $('modal-titulo').textContent = 'Figurinha #' + pad(f.numero) + (f.raridade === 'brilhante' ? ' · Brilhante' : '');
+    $('modal-quem').innerHTML = 'Contrato de <strong>' + esc(nomeExibido(f.contratante)) + '</strong>, cumprido em ' + dataBR(f.data) + '.';
+    $('modal-pedido').textContent = '“' + (f.pedido || 'Pedido não informado') + '”';
+    var slug = slugDoClipe(f.clipe);
+    var html;
+    if (slug && location.protocol === 'https:' && location.hostname) {
+      html = '<iframe class="clipe" title="Clipe da figurinha #' + pad(f.numero) + '" src="https://clips.twitch.tv/embed?clip=' + encodeURIComponent(slug) + '&parent=' + encodeURIComponent(location.hostname) + '&autoplay=false" allowfullscreen></iframe>';
+    } else if (f.clipe) {
+      html = '<p class="clipe-aviso">O clipe toca aqui quando o álbum estiver publicado. Por enquanto: <a href="' + esc(f.clipe) + '" target="_blank" rel="noopener">ver o clipe na Twitch</a>.</p>';
+    } else {
+      html = '<p class="clipe-aviso">O clipe dessa figurinha ainda não foi adicionado.</p>';
+    }
+    $('modal-clipe').innerHTML = html;
+    aviso('');
+    if (!modal.open) modal.showModal();
+  }
+
+  function fechar() { if (modal.open) modal.close(); }
+
+  modal.addEventListener('close', function () {
+    $('modal-clipe').innerHTML = '';
+    atual = null;
+    if (/^#f-\d+$/.test(location.hash)) history.replaceState(null, '', location.pathname + location.search);
+  });
+  modal.addEventListener('click', function (e) { if (e.target === modal) fechar(); });
+  $('modal-fechar').addEventListener('click', fechar);
+
+  $('btn-link').addEventListener('click', function () {
+    if (!atual) return;
+    var url = location.href.split('#')[0] + '#f-' + pad(atual.numero);
+    copiar(url).then(function () { aviso('Link copiado! Manda pros amigos.'); }, function () { aviso('Não deu pra copiar. O link é: ' + url); });
+  });
+
+  $('btn-baixar').addEventListener('click', function () {
+    if (!atual) return;
+    if (!window.html2canvas) { aviso('Ainda carregando o gerador de imagem. Tenta de novo em alguns segundos.'); return; }
+    var f = atual;
+    var caixa = document.createElement('div');
+    caixa.style.cssText = 'position:fixed;left:0;top:0;width:400px;z-index:-1;pointer-events:none;';
+    caixa.innerHTML = cardHTML(f, { carregarJa: true });
+    document.body.appendChild(caixa);
+    var brilho = caixa.querySelector('.fig-brilho');
+    if (brilho) { brilho.style.animation = 'none'; brilho.style.backgroundPosition = '50% 0'; }
+    aviso('Gerando a imagem...');
+    var imgs = Array.prototype.slice.call(caixa.querySelectorAll('img'));
+    var esperaImgs = Promise.all(imgs.map(function (im) {
+      return im.complete ? Promise.resolve() : new Promise(function (r) { im.addEventListener('load', r); im.addEventListener('error', r); });
+    }));
+    Promise.all([document.fonts ? document.fonts.ready : Promise.resolve(), esperaImgs])
+      .then(function () {
+        return window.html2canvas(caixa.firstElementChild, { scale: 2, backgroundColor: null, useCORS: true, logging: false, scrollX: 0, scrollY: 0 });
+      })
+      .then(function (canvas) {
+        var a = document.createElement('a');
+        a.href = canvas.toDataURL('image/png');
+        a.download = 'figurinha-' + pad(f.numero) + '.png';
+        document.body.appendChild(a); a.click(); a.remove();
+        aviso('Pronto! A figurinha foi baixada. Posta e marca o Raffs.');
+      })
+      .catch(function () { aviso('Não consegui gerar a imagem. Se o print estiver em outro site, salve ele na pasta imagens.'); })
+      .then(function () { caixa.remove(); });
+  });
+
+  /* ---------- Cadastro ---------- */
+  var cad = {
+    numero: $('c-numero'), contratante: $('c-contratante'), pedido: $('c-pedido'), data: $('c-data'),
+    clipe: $('c-clipe'), imagem: $('c-imagem'), raridade: $('c-raridade')
+  };
+  var imagemEditada = false;
+  cad.numero.value = maiorNumero + 1;
+  cad.data.value = hojeISO();
+  cad.imagem.value = 'imagens/' + pad(maiorNumero + 1) + '.jpg';
+
+  function dadosCadastro() {
+    return {
+      numero: Math.max(1, Math.floor(Number(cad.numero.value)) || 1),
+      contratante: cad.contratante.value.trim().replace(/^@+/, ''),
+      pedido: cad.pedido.value.trim(),
+      data: cad.data.value,
+      clipe: cad.clipe.value.trim(),
+      imagem: cad.imagem.value.trim(),
+      raridade: cad.raridade.value === 'brilhante' ? 'brilhante' : 'comum'
+    };
+  }
+
+  function atualizarCadastro() {
+    var d = dadosCadastro();
+    if (!imagemEditada) { cad.imagem.value = 'imagens/' + pad(d.numero) + '.jpg'; d.imagem = cad.imagem.value; }
+    $('c-previa').innerHTML = cardHTML(d, { carregarJa: true });
+    $('c-saida').value = '{ numero: ' + d.numero +
+      ', contratante: ' + JSON.stringify(d.contratante) +
+      ', pedido: ' + JSON.stringify(d.pedido) +
+      ', data: ' + JSON.stringify(d.data) +
+      ', clipe: ' + JSON.stringify(d.clipe) +
+      ', imagem: ' + JSON.stringify(d.imagem) +
+      ', raridade: ' + JSON.stringify(d.raridade) + ' },';
+    var avisos = [];
+    if (porNumero.has(d.numero)) avisos.push('Atenção: já existe a figurinha #' + pad(d.numero) + '.');
+    if (d.clipe && !slugDoClipe(d.clipe)) avisos.push('Esse link não parece ser de um clipe da Twitch.');
+    $('c-aviso').textContent = avisos.join(' ');
+  }
+
+  Object.keys(cad).forEach(function (k) { cad[k].addEventListener('input', atualizarCadastro); });
+  cad.imagem.addEventListener('input', function () { imagemEditada = true; });
+  $('c-copiar').addEventListener('click', function () {
+    copiar($('c-saida').value).then(function () { $('c-aviso').textContent = 'Linha copiada! Agora cole no figurinhas.js.'; },
+      function () { $('c-saida').select(); $('c-aviso').textContent = 'Não deu pra copiar sozinho. A linha já está selecionada: use Ctrl+C.'; });
+  });
+
+  /* ---------- Rotas (#cadastro e #f-001) ---------- */
+  function rota() {
+    var h = location.hash;
+    var noCadastro = h === '#cadastro';
+    $('album').hidden = noCadastro;
+    $('cadastro').hidden = !noCadastro;
+    if (noCadastro) { fechar(); atualizarCadastro(); return; }
+    var m = /^#f-(\d+)$/.exec(h);
+    if (m && porNumero.has(Number(m[1]))) abrir(porNumero.get(Number(m[1])));
+    else fechar();
+  }
+  window.addEventListener('hashchange', rota);
+
+  montarResumo();
+  montarRanking();
+  montarGrade();
+  rota();
+})();
+</script>
+</body>
+</html>
