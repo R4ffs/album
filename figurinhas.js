@@ -16,10 +16,10 @@ window.ALBUM = {
     totalDeEspacos: 100,
 
     // Link da sua página de doação do LivePix (botão "Fechar contrato")
-    linkContrato: "",
+    linkContrato: "https://livepix.gg/r4ffs",
 
     // Link do seu canal na Twitch (botão "Assistir na Twitch")
-    linkTwitch: ""
+    linkTwitch: "https://www.twitch.tv/raffs_mad"
   },
 
   figurinhas: [
