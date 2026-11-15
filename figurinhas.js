@@ -19,7 +19,7 @@ window.ALBUM = {
     linkContrato: "https://livepix.gg/r4ffs",
 
     // Link do seu canal na Twitch (botão "Assistir na Twitch")
-    linkTwitch: "https://www.twitch.tv/raffs_mad"
+    linkTwitch: "https://www.twitch.tv/r4ffs_mad"
   },
 
   figurinhas: [
