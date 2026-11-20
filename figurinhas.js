@@ -24,7 +24,8 @@ window.ALBUM = {
 
   figurinhas: [
     // ----- cole as novas figurinhas abaixo desta linha -----
-
+    { numero: 1, contratante: "David Bener", pedido: "Fazer uma arruaça até ficar com 5 estrelas de policia", data: "2026-11-18", clipe: "https://www.twitch.tv/videos/2932209115", imagem: "imagens/001.jpg", raridade: "brilhante" },
+    
   ]
 
 };
