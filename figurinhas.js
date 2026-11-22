@@ -25,8 +25,7 @@ window.ALBUM = {
   figurinhas: [
     // ----- cole as novas figurinhas abaixo desta linha -----
     { numero: 1, contratante: "David Bener", pedido: "Fazer uma arruaça até ficar com 5 estrelas de policia", data: "2026-11-18", clipe: "https://www.twitch.tv/videos/2932209115", imagem: "imagens/001.jpg", raridade: "brilhante" },
-    { numero: 2, contratante: "Bob esponja doidão", pedido: "Visitar a Loja de \"SAPATO", data: "2026-11-18", clipe: "https://www.twitch.tv/r4ffs_mad/clip/DeterminedGiftedYakDxCat-rwczMgQKyo4LFkCv", imagem: "imagens/002.jpg", raridade: "brilhante" },
-
+    { numero: 2, contratante: "Lucas Carpini", pedido: "Visitar a Loja de \"SAPATO", data: "2026-11-18", clipe: "https://www.twitch.tv/r4ffs_mad/clip/DeterminedGiftedYakDxCat-rwczMgQKyo4LFkCv", imagem: "imagens/002.jpg", raridade: "brilhante" },
     
   ]
 
